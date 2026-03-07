@@ -17,32 +17,44 @@ def utc_now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
-def to_url(repo: str, branch: str, rel_path: str) -> dict:
+def normalize_base_url(base_url: str) -> str:
+    return (base_url or "").strip().rstrip('/')
+
+
+def default_site_base(repo: str) -> str:
+    owner, _, repo_name = repo.partition('/')
+    if not owner or not repo_name:
+        raise ValueError(f"invalid repo format: {repo}, expected owner/repo")
+    return f"https://{owner}.github.io/{repo_name}"
+
+
+def to_url(repo: str, branch: str, rel_path: str, site_base: str) -> dict:
     rel_path = rel_path.replace('\\', '/')
+    primary = f"{site_base}/{rel_path}"
     return {
-        "primary": f"https://raw.githubusercontent.com/{repo}/{branch}/{rel_path}",
-        "mirror": f"https://fastly.jsdelivr.net/gh/{repo}@{branch}/{rel_path}",
+        "primary": primary,
+        # 保留字段结构，避免前端改动；GitHub Pages + 自定义域名下可与 primary 相同
+        "mirror": primary,
     }
 
 
-def to_ghfile_proxy(url: str) -> str:
-    if url.startswith("https://raw.githubusercontent.com/"):
-        return f"https://ghfile.geekertao.top/{url}"
+def to_proxy_url(url: str) -> str:
+    # 保留字段结构，统一走 GitHub Pages 域名
     return url
 
 
-def resolve_media_url(repo: str, branch: str, media_value):
+def resolve_media_url(repo: str, branch: str, site_base: str, media_value):
     if not media_value:
         return media_value
     if isinstance(media_value, str):
         if media_value.startswith("http://") or media_value.startswith("https://"):
             return media_value
-        return to_url(repo, branch, media_value)["primary"]
+        return to_url(repo, branch, media_value, site_base)["primary"]
     if isinstance(media_value, list):
         out = []
         for item in media_value:
             if isinstance(item, str) and not (item.startswith("http://") or item.startswith("https://")):
-                out.append(to_url(repo, branch, item)["primary"])
+                out.append(to_url(repo, branch, item, site_base)["primary"])
             else:
                 out.append(item)
         return out
@@ -50,23 +62,30 @@ def resolve_media_url(repo: str, branch: str, media_value):
 
 
 def infer_rpk_path(root: Path, category: str, app_id: str, version_name: str) -> str:
-    target_dir = root / "packages" / category / app_id / version_name
-    if not target_dir.exists():
+    flat_dir = root / "packages" / category / app_id
+    flat_rpk_files = sorted(flat_dir.glob("*.rpk")) if flat_dir.exists() else []
+    if len(flat_rpk_files) == 1:
+        return str(flat_rpk_files[0].relative_to(root)).replace('\\', '/')
+    if len(flat_rpk_files) > 1:
         raise ValueError(
-            f"missing rpkPath and package dir not found: {target_dir}. "
-            f"Please set rpkPath explicitly or place rpk under packages/{category}/{app_id}/{version_name}/"
+            f"multiple .rpk files found in {flat_dir}. "
+            f"Please set rpkPath explicitly to avoid wrong filename mapping."
         )
-    rpk_files = sorted(target_dir.glob("*.rpk"))
-    if len(rpk_files) == 1:
-        return str(rpk_files[0].relative_to(root)).replace('\\', '/')
-    if len(rpk_files) == 0:
+
+    # 兼容旧结构：packages/<category>/<appId>/<versionName>/xxx.rpk
+    legacy_dir = flat_dir / version_name
+    legacy_rpk_files = sorted(legacy_dir.glob("*.rpk")) if legacy_dir.exists() else []
+    if len(legacy_rpk_files) == 1:
+        return str(legacy_rpk_files[0].relative_to(root)).replace('\\', '/')
+    if len(legacy_rpk_files) > 1:
         raise ValueError(
-            f"missing rpkPath and no .rpk found in {target_dir}. "
-            f"Please upload rpk or set rpkPath explicitly."
+            f"multiple .rpk files found in {legacy_dir}. "
+            f"Please set rpkPath explicitly to avoid wrong filename mapping."
         )
+
     raise ValueError(
-        f"multiple .rpk files found in {target_dir}. "
-        f"Please set rpkPath explicitly to avoid wrong filename mapping."
+        f"missing rpkPath and no .rpk found in {flat_dir} or {legacy_dir}. "
+        f"Please set rpkPath explicitly or place exactly one .rpk under packages/{category}/{app_id}/"
     )
 
 
@@ -110,11 +129,11 @@ def load_apps(apps_dir: Path, root: Path):
     return apps
 
 
-def build_index(repo: str, branch: str, apps: list):
+def build_index(repo: str, branch: str, site_base: str, apps: list):
     normalized = []
     for a in apps:
         category = a.get("category", "other")
-        download_urls = to_url(repo, branch, a["rpkPath"])
+        download_urls = to_url(repo, branch, a["rpkPath"], site_base)
         item = {
             "appId": a["appId"],
             "name": a["name"],
@@ -127,15 +146,15 @@ def build_index(repo: str, branch: str, apps: list):
             "tags": a.get("tags", []),
             "minPlatformVersion": a.get("minPlatformVersion"),
             "minFirmware": a.get("minFirmware"),
-            "icon": resolve_media_url(repo, branch, a.get("icon")),
-            "screenshots": resolve_media_url(repo, branch, a.get("screenshots", [])),
+            "icon": resolve_media_url(repo, branch, site_base, a.get("icon")),
+            "screenshots": resolve_media_url(repo, branch, site_base, a.get("screenshots", [])),
             "rpkFileName": a.get("rpkFileName", a.get("_rpkFileName")),
             "packageSizeBytes": a.get("packageSizeBytes", a.get("_packageSizeBytes")),
             "download": {
                 **download_urls,
-                "proxy": to_ghfile_proxy(download_urls["primary"]),
+                "proxy": to_proxy_url(download_urls["primary"]),
             },
-            "meta": to_url(repo, branch, a["_metaPath"]),
+            "meta": to_url(repo, branch, a["_metaPath"], site_base),
             "updatedAt": a.get("updatedAt", utc_now_iso()),
         }
         normalized.append(item)
@@ -171,6 +190,7 @@ def main():
     parser = argparse.ArgumentParser(description="Build app index for third-party watch store")
     parser.add_argument("--repo", required=True, help="GitHub repo, e.g. owner/repo")
     parser.add_argument("--branch", default="main", help="Git branch")
+    parser.add_argument("--site-base", default="", help="Site base URL for GitHub Pages/custom domain")
     parser.add_argument("--apps-dir", default="apps", help="Apps metadata directory")
     parser.add_argument("--out", default="data/index.json", help="Output index file")
     args = parser.parse_args()
@@ -182,8 +202,10 @@ def main():
     if not apps_dir.exists():
         raise SystemExit(f"apps dir not found: {apps_dir}")
 
+    site_base = normalize_base_url(args.site_base) or default_site_base(args.repo)
+
     apps = load_apps(apps_dir, root)
-    index = build_index(args.repo, args.branch, apps)
+    index = build_index(args.repo, args.branch, site_base, apps)
 
     out_file.parent.mkdir(parents=True, exist_ok=True)
     out_file.write_text(json.dumps(index, ensure_ascii=False, indent=2) + "\n", encoding='utf-8')

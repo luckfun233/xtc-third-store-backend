@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-03-02T15:45:54+00:00",
+  "generatedAt": "2026-03-07T14:24:22+00:00",
   "repo": {
     "id": "204848/xtc-third-store",
     "branch": "main"
@@ -26,18 +26,18 @@
           ],
           "minPlatformVersion": 1070,
           "minFirmware": "1.0.0",
-          "icon": "https://raw.githubusercontent.com/204848/xtc-third-store/main/assets/icons/sample-math.png",
+          "icon": "https://204848.github.io/xtc-third-store/assets/icons/sample-math.png",
           "screenshots": [],
           "rpkFileName": "sample-math-1.0.0.rpk",
           "packageSizeBytes": 33,
           "download": {
-            "primary": "https://raw.githubusercontent.com/204848/xtc-third-store/main/packages/games/sample-math/1.0.0/sample-math-1.0.0.rpk",
-            "mirror": "https://fastly.jsdelivr.net/gh/204848/xtc-third-store@main/packages/games/sample-math/1.0.0/sample-math-1.0.0.rpk",
-            "proxy": "https://ghfile.geekertao.top/https://raw.githubusercontent.com/204848/xtc-third-store/main/packages/games/sample-math/1.0.0/sample-math-1.0.0.rpk"
+            "primary": "https://204848.github.io/xtc-third-store/packages/games/sample-math/sample-math-1.0.0.rpk",
+            "mirror": "https://204848.github.io/xtc-third-store/packages/games/sample-math/sample-math-1.0.0.rpk",
+            "proxy": "https://204848.github.io/xtc-third-store/packages/games/sample-math/sample-math-1.0.0.rpk"
           },
           "meta": {
-            "primary": "https://raw.githubusercontent.com/204848/xtc-third-store/main/apps/games/sample-math.json",
-            "mirror": "https://fastly.jsdelivr.net/gh/204848/xtc-third-store@main/apps/games/sample-math.json"
+            "primary": "https://204848.github.io/xtc-third-store/apps/games/sample-math.json",
+            "mirror": "https://204848.github.io/xtc-third-store/apps/games/sample-math.json"
           },
           "updatedAt": "2026-03-02T00:00:00+00:00"
         }
@@ -63,18 +63,18 @@
           ],
           "minPlatformVersion": 1070,
           "minFirmware": "1.0.0",
-          "icon": "https://raw.githubusercontent.com/204848/xtc-third-store/main/assets/icons/sample-timer.png",
+          "icon": "https://204848.github.io/xtc-third-store/assets/icons/sample-timer.png",
           "screenshots": [],
           "rpkFileName": "sample-timer-1.0.0.rpk",
           "packageSizeBytes": 33,
           "download": {
-            "primary": "https://raw.githubusercontent.com/204848/xtc-third-store/main/packages/tools/sample-timer/1.0.0/sample-timer-1.0.0.rpk",
-            "mirror": "https://fastly.jsdelivr.net/gh/204848/xtc-third-store@main/packages/tools/sample-timer/1.0.0/sample-timer-1.0.0.rpk",
-            "proxy": "https://ghfile.geekertao.top/https://raw.githubusercontent.com/204848/xtc-third-store/main/packages/tools/sample-timer/1.0.0/sample-timer-1.0.0.rpk"
+            "primary": "https://204848.github.io/xtc-third-store/packages/tools/sample-timer/sample-timer-1.0.0.rpk",
+            "mirror": "https://204848.github.io/xtc-third-store/packages/tools/sample-timer/sample-timer-1.0.0.rpk",
+            "proxy": "https://204848.github.io/xtc-third-store/packages/tools/sample-timer/sample-timer-1.0.0.rpk"
           },
           "meta": {
-            "primary": "https://raw.githubusercontent.com/204848/xtc-third-store/main/apps/tools/sample-timer.json",
-            "mirror": "https://fastly.jsdelivr.net/gh/204848/xtc-third-store@main/apps/tools/sample-timer.json"
+            "primary": "https://204848.github.io/xtc-third-store/apps/tools/sample-timer.json",
+            "mirror": "https://204848.github.io/xtc-third-store/apps/tools/sample-timer.json"
           },
           "updatedAt": "2026-03-02T00:00:00+00:00"
         }
@@ -97,18 +97,18 @@
       ],
       "minPlatformVersion": 1070,
       "minFirmware": "1.0.0",
-      "icon": "https://raw.githubusercontent.com/204848/xtc-third-store/main/assets/icons/sample-math.png",
+      "icon": "https://204848.github.io/xtc-third-store/assets/icons/sample-math.png",
       "screenshots": [],
       "rpkFileName": "sample-math-1.0.0.rpk",
       "packageSizeBytes": 33,
       "download": {
-        "primary": "https://raw.githubusercontent.com/204848/xtc-third-store/main/packages/games/sample-math/1.0.0/sample-math-1.0.0.rpk",
-        "mirror": "https://fastly.jsdelivr.net/gh/204848/xtc-third-store@main/packages/games/sample-math/1.0.0/sample-math-1.0.0.rpk",
-        "proxy": "https://ghfile.geekertao.top/https://raw.githubusercontent.com/204848/xtc-third-store/main/packages/games/sample-math/1.0.0/sample-math-1.0.0.rpk"
+        "primary": "https://204848.github.io/xtc-third-store/packages/games/sample-math/sample-math-1.0.0.rpk",
+        "mirror": "https://204848.github.io/xtc-third-store/packages/games/sample-math/sample-math-1.0.0.rpk",
+        "proxy": "https://204848.github.io/xtc-third-store/packages/games/sample-math/sample-math-1.0.0.rpk"
       },
       "meta": {
-        "primary": "https://raw.githubusercontent.com/204848/xtc-third-store/main/apps/games/sample-math.json",
-        "mirror": "https://fastly.jsdelivr.net/gh/204848/xtc-third-store@main/apps/games/sample-math.json"
+        "primary": "https://204848.github.io/xtc-third-store/apps/games/sample-math.json",
+        "mirror": "https://204848.github.io/xtc-third-store/apps/games/sample-math.json"
       },
       "updatedAt": "2026-03-02T00:00:00+00:00"
     },
@@ -127,18 +127,18 @@
       ],
       "minPlatformVersion": 1070,
       "minFirmware": "1.0.0",
-      "icon": "https://raw.githubusercontent.com/204848/xtc-third-store/main/assets/icons/sample-timer.png",
+      "icon": "https://204848.github.io/xtc-third-store/assets/icons/sample-timer.png",
       "screenshots": [],
       "rpkFileName": "sample-timer-1.0.0.rpk",
       "packageSizeBytes": 33,
       "download": {
-        "primary": "https://raw.githubusercontent.com/204848/xtc-third-store/main/packages/tools/sample-timer/1.0.0/sample-timer-1.0.0.rpk",
-        "mirror": "https://fastly.jsdelivr.net/gh/204848/xtc-third-store@main/packages/tools/sample-timer/1.0.0/sample-timer-1.0.0.rpk",
-        "proxy": "https://ghfile.geekertao.top/https://raw.githubusercontent.com/204848/xtc-third-store/main/packages/tools/sample-timer/1.0.0/sample-timer-1.0.0.rpk"
+        "primary": "https://204848.github.io/xtc-third-store/packages/tools/sample-timer/sample-timer-1.0.0.rpk",
+        "mirror": "https://204848.github.io/xtc-third-store/packages/tools/sample-timer/sample-timer-1.0.0.rpk",
+        "proxy": "https://204848.github.io/xtc-third-store/packages/tools/sample-timer/sample-timer-1.0.0.rpk"
       },
       "meta": {
-        "primary": "https://raw.githubusercontent.com/204848/xtc-third-store/main/apps/tools/sample-timer.json",
-        "mirror": "https://fastly.jsdelivr.net/gh/204848/xtc-third-store@main/apps/tools/sample-timer.json"
+        "primary": "https://204848.github.io/xtc-third-store/apps/tools/sample-timer.json",
+        "mirror": "https://204848.github.io/xtc-third-store/apps/tools/sample-timer.json"
       },
       "updatedAt": "2026-03-02T00:00:00+00:00"
     }

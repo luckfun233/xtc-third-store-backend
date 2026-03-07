@@ -26,7 +26,7 @@ jobs:
 
       - name: Build index.json
         run: |
-          python scripts/build_index.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}"
+          python scripts/build_index.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --site-base "${{ vars.STORE_BASE_URL }}"
 
       - name: Commit changes if any
         run: |
