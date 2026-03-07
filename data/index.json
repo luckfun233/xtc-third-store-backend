@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-03-07T15:17:55+00:00",
+  "generatedAt": "2026-03-07T16:20:47+00:00",
   "repo": {
     "id": "luckfun233/xtc-third-store-backend",
     "branch": "master"
@@ -26,18 +26,18 @@
           ],
           "minPlatformVersion": 1070,
           "minFirmware": "1.0.0",
-          "icon": "https://store.1357924680liu.dpdns.org/assets/icons/sample-math.png",
+          "icon": "https://store.3216gemini.dpdns.org/assets/icons/sample-math.png",
           "screenshots": [],
           "rpkFileName": "wearnote.rpk",
           "packageSizeBytes": 17687,
           "download": {
-            "primary": "https://store.1357924680liu.dpdns.org/packages/games/wearnote.rpk",
-            "mirror": "https://store.1357924680liu.dpdns.org/packages/games/wearnote.rpk",
-            "proxy": "https://store.1357924680liu.dpdns.org/packages/games/wearnote.rpk"
+            "primary": "https://store.3216gemini.dpdns.org/packages/games/wearnote.rpk",
+            "mirror": "https://store.3216gemini.dpdns.org/packages/games/wearnote.rpk",
+            "proxy": "https://store.3216gemini.dpdns.org/packages/games/wearnote.rpk"
           },
           "meta": {
-            "primary": "https://store.1357924680liu.dpdns.org/apps/games/wearnote.json",
-            "mirror": "https://store.1357924680liu.dpdns.org/apps/games/wearnote.json"
+            "primary": "https://store.3216gemini.dpdns.org/apps/games/wearnote.json",
+            "mirror": "https://store.3216gemini.dpdns.org/apps/games/wearnote.json"
           },
           "updatedAt": "2026-03-02T00:00:00+00:00"
         }
@@ -63,18 +63,18 @@
           ],
           "minPlatformVersion": 1070,
           "minFirmware": "1.0.0",
-          "icon": "https://store.1357924680liu.dpdns.org/assets/icons/AI.png",
+          "icon": "https://store.3216gemini.dpdns.org/assets/icons/AI.png",
           "screenshots": [],
           "rpkFileName": "AI.rpk",
           "packageSizeBytes": 55619,
           "download": {
-            "primary": "https://store.1357924680liu.dpdns.org/packages/practical/AI.rpk",
-            "mirror": "https://store.1357924680liu.dpdns.org/packages/practical/AI.rpk",
-            "proxy": "https://store.1357924680liu.dpdns.org/packages/practical/AI.rpk"
+            "primary": "https://store.3216gemini.dpdns.org/packages/practical/AI.rpk",
+            "mirror": "https://store.3216gemini.dpdns.org/packages/practical/AI.rpk",
+            "proxy": "https://store.3216gemini.dpdns.org/packages/practical/AI.rpk"
           },
           "meta": {
-            "primary": "https://store.1357924680liu.dpdns.org/apps/practical/AI.json",
-            "mirror": "https://store.1357924680liu.dpdns.org/apps/practical/AI.json"
+            "primary": "https://store.3216gemini.dpdns.org/apps/practical/AI.json",
+            "mirror": "https://store.3216gemini.dpdns.org/apps/practical/AI.json"
           },
           "updatedAt": "2026-03-07T00:00:00+00:00"
         },
@@ -83,7 +83,7 @@
           "name": "应用商店",
           "packageName": "com.xtc.thirdstore.watch",
           "category": "practical",
-          "versionName": "1.0.0",
+          "versionName": "1.0.1",
           "versionCode": 1,
           "description": "store",
           "developer": "Demo Studio",
@@ -93,18 +93,18 @@
           ],
           "minPlatformVersion": 1070,
           "minFirmware": "1.0.0",
-          "icon": "https://store.1357924680liu.dpdns.org/assets/icons/store.png",
+          "icon": "https://store.3216gemini.dpdns.org/assets/icons/store.png",
           "screenshots": [],
           "rpkFileName": "store.rpk",
-          "packageSizeBytes": 18770,
+          "packageSizeBytes": 23565,
           "download": {
-            "primary": "https://store.1357924680liu.dpdns.org/packages/practical/store.rpk",
-            "mirror": "https://store.1357924680liu.dpdns.org/packages/practical/store.rpk",
-            "proxy": "https://store.1357924680liu.dpdns.org/packages/practical/store.rpk"
+            "primary": "https://store.3216gemini.dpdns.org/packages/practical/store.rpk",
+            "mirror": "https://store.3216gemini.dpdns.org/packages/practical/store.rpk",
+            "proxy": "https://store.3216gemini.dpdns.org/packages/practical/store.rpk"
           },
           "meta": {
-            "primary": "https://store.1357924680liu.dpdns.org/apps/practical/store.json",
-            "mirror": "https://store.1357924680liu.dpdns.org/apps/practical/store.json"
+            "primary": "https://store.3216gemini.dpdns.org/apps/practical/store.json",
+            "mirror": "https://store.3216gemini.dpdns.org/apps/practical/store.json"
           },
           "updatedAt": "2026-03-06T00:00:00+00:00"
         }
@@ -127,18 +127,18 @@
       ],
       "minPlatformVersion": 1070,
       "minFirmware": "1.0.0",
-      "icon": "https://store.1357924680liu.dpdns.org/assets/icons/sample-math.png",
+      "icon": "https://store.3216gemini.dpdns.org/assets/icons/sample-math.png",
       "screenshots": [],
       "rpkFileName": "wearnote.rpk",
       "packageSizeBytes": 17687,
       "download": {
-        "primary": "https://store.1357924680liu.dpdns.org/packages/games/wearnote.rpk",
-        "mirror": "https://store.1357924680liu.dpdns.org/packages/games/wearnote.rpk",
-        "proxy": "https://store.1357924680liu.dpdns.org/packages/games/wearnote.rpk"
+        "primary": "https://store.3216gemini.dpdns.org/packages/games/wearnote.rpk",
+        "mirror": "https://store.3216gemini.dpdns.org/packages/games/wearnote.rpk",
+        "proxy": "https://store.3216gemini.dpdns.org/packages/games/wearnote.rpk"
       },
       "meta": {
-        "primary": "https://store.1357924680liu.dpdns.org/apps/games/wearnote.json",
-        "mirror": "https://store.1357924680liu.dpdns.org/apps/games/wearnote.json"
+        "primary": "https://store.3216gemini.dpdns.org/apps/games/wearnote.json",
+        "mirror": "https://store.3216gemini.dpdns.org/apps/games/wearnote.json"
       },
       "updatedAt": "2026-03-02T00:00:00+00:00"
     },
@@ -157,18 +157,18 @@
       ],
       "minPlatformVersion": 1070,
       "minFirmware": "1.0.0",
-      "icon": "https://store.1357924680liu.dpdns.org/assets/icons/AI.png",
+      "icon": "https://store.3216gemini.dpdns.org/assets/icons/AI.png",
       "screenshots": [],
       "rpkFileName": "AI.rpk",
       "packageSizeBytes": 55619,
       "download": {
-        "primary": "https://store.1357924680liu.dpdns.org/packages/practical/AI.rpk",
-        "mirror": "https://store.1357924680liu.dpdns.org/packages/practical/AI.rpk",
-        "proxy": "https://store.1357924680liu.dpdns.org/packages/practical/AI.rpk"
+        "primary": "https://store.3216gemini.dpdns.org/packages/practical/AI.rpk",
+        "mirror": "https://store.3216gemini.dpdns.org/packages/practical/AI.rpk",
+        "proxy": "https://store.3216gemini.dpdns.org/packages/practical/AI.rpk"
       },
       "meta": {
-        "primary": "https://store.1357924680liu.dpdns.org/apps/practical/AI.json",
-        "mirror": "https://store.1357924680liu.dpdns.org/apps/practical/AI.json"
+        "primary": "https://store.3216gemini.dpdns.org/apps/practical/AI.json",
+        "mirror": "https://store.3216gemini.dpdns.org/apps/practical/AI.json"
       },
       "updatedAt": "2026-03-07T00:00:00+00:00"
     },
@@ -177,7 +177,7 @@
       "name": "应用商店",
       "packageName": "com.xtc.thirdstore.watch",
       "category": "practical",
-      "versionName": "1.0.0",
+      "versionName": "1.0.1",
       "versionCode": 1,
       "description": "store",
       "developer": "Demo Studio",
@@ -187,18 +187,18 @@
       ],
       "minPlatformVersion": 1070,
       "minFirmware": "1.0.0",
-      "icon": "https://store.1357924680liu.dpdns.org/assets/icons/store.png",
+      "icon": "https://store.3216gemini.dpdns.org/assets/icons/store.png",
       "screenshots": [],
       "rpkFileName": "store.rpk",
-      "packageSizeBytes": 18770,
+      "packageSizeBytes": 23565,
       "download": {
-        "primary": "https://store.1357924680liu.dpdns.org/packages/practical/store.rpk",
-        "mirror": "https://store.1357924680liu.dpdns.org/packages/practical/store.rpk",
-        "proxy": "https://store.1357924680liu.dpdns.org/packages/practical/store.rpk"
+        "primary": "https://store.3216gemini.dpdns.org/packages/practical/store.rpk",
+        "mirror": "https://store.3216gemini.dpdns.org/packages/practical/store.rpk",
+        "proxy": "https://store.3216gemini.dpdns.org/packages/practical/store.rpk"
       },
       "meta": {
-        "primary": "https://store.1357924680liu.dpdns.org/apps/practical/store.json",
-        "mirror": "https://store.1357924680liu.dpdns.org/apps/practical/store.json"
+        "primary": "https://store.3216gemini.dpdns.org/apps/practical/store.json",
+        "mirror": "https://store.3216gemini.dpdns.org/apps/practical/store.json"
       },
       "updatedAt": "2026-03-06T00:00:00+00:00"
     }
