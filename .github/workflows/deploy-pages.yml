@@ -2,13 +2,7 @@ name: deploy-pages
 
 on:
   push:
-    branches: [ "main" ]
-    paths:
-      - "apps/**"
-      - "assets/**"
-      - "packages/**"
-      - "scripts/build_index.py"
-      - ".github/workflows/deploy-pages.yml"
+    branches: [ "main", "master" ]
   workflow_dispatch:
 
 permissions:
@@ -24,6 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      DEFAULT_STORE_BASE_URL: https://store.1357924680liu.dpdns.org
       STORE_BASE_URL: ${{ vars.STORE_BASE_URL }}
     steps:
       - name: Checkout
@@ -41,8 +36,7 @@ jobs:
           if [[ -n "${STORE_BASE_URL}" ]]; then
             echo "site_base=${STORE_BASE_URL}" >> "$GITHUB_OUTPUT"
           else
-            repo_name="${GITHUB_REPOSITORY#*/}"
-            echo "site_base=https://${GITHUB_REPOSITORY_OWNER}.github.io/${repo_name}" >> "$GITHUB_OUTPUT"
+            echo "site_base=${DEFAULT_STORE_BASE_URL}" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Build index.json

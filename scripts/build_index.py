@@ -62,7 +62,7 @@ def resolve_media_url(repo: str, branch: str, site_base: str, media_value):
 
 
 def infer_rpk_path(root: Path, category: str, app_id: str, version_name: str) -> str:
-    # 新结构（推荐）：packages/<category>/*.rpk
+    # 新结构（唯一推荐）：packages/<category>/*.rpk
     category_dir = root / "packages" / category
     category_rpk_files = sorted(category_dir.glob("*.rpk")) if category_dir.exists() else []
     if category_rpk_files:
@@ -93,27 +93,15 @@ def infer_rpk_path(root: Path, category: str, app_id: str, version_name: str) ->
                 f"Please set rpkPath explicitly."
             )
 
-    # 兼容旧结构1：packages/<category>/<appId>/*.rpk
-    legacy_app_dir = category_dir / app_id
-    legacy_app_files = sorted(legacy_app_dir.glob("*.rpk")) if legacy_app_dir.exists() else []
-    if len(legacy_app_files) == 1:
-        return str(legacy_app_files[0].relative_to(root)).replace('\\', '/')
-    if len(legacy_app_files) > 1:
-        raise ValueError(
-            f"multiple .rpk files found in {legacy_app_dir}. "
-            f"Please set rpkPath explicitly to avoid wrong filename mapping."
-        )
-
-    # 兼容旧结构2：packages/<category>/<appId>/<versionName>/*.rpk
-    legacy_ver_dir = legacy_app_dir / version_name
-    legacy_ver_files = sorted(legacy_ver_dir.glob("*.rpk")) if legacy_ver_dir.exists() else []
-    if len(legacy_ver_files) == 1:
-        return str(legacy_ver_files[0].relative_to(root)).replace('\\', '/')
-    if len(legacy_ver_files) > 1:
-        raise ValueError(
-            f"multiple .rpk files found in {legacy_ver_dir}. "
-            f"Please set rpkPath explicitly to avoid wrong filename mapping."
-        )
+        # 兜底：仅按 appId 匹配
+        app_only = [p for p in category_rpk_files if app_id.lower() in p.name.lower()]
+        if len(app_only) == 1:
+            return str(app_only[0].relative_to(root)).replace('\\', '/')
+        if len(app_only) > 1:
+            raise ValueError(
+                f"multiple appId matched .rpk files found in {category_dir} for appId={app_id}. "
+                f"Please include version in filename or set rpkPath explicitly."
+            )
 
     raise ValueError(
         f"missing rpkPath and no matched .rpk found under packages/{category}/. "

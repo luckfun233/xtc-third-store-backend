@@ -46,7 +46,7 @@ xtc-third-store-backend/
 `rpkPath` 可选（推荐不写，避免手误）：
 - 若不写，会优先从 `packages/<category>/` 自动匹配当前应用对应 `.rpk`
 - 推荐命名：`<appId>-<versionName>.rpk`（例如 `sample-math-1.0.0.rpk`）
-- 脚本仍兼容旧结构 `packages/<category>/<appId>/` 与 `packages/<category>/<appId>/<versionName>/`（建议逐步迁移）
+- 不再自动推断旧结构；若仍保留旧结构，请在元数据里显式填写 `rpkPath`
 
 可选字段：
 - `icon`, `screenshots`, `description`, `developer`, `tags`, `minPlatformVersion`, `minFirmware`
@@ -58,6 +58,8 @@ xtc-third-store-backend/
 - `packages/**/*.rpk`
 
 提交后还会自动触发 `deploy-pages.yml`，将 `apps/ assets/ data/ packages/` 发布到 GitHub Pages。
+
+`deploy-pages.yml` 触发分支：`main` / `master`（任意 push）。
 
 ## 本地手动生成
 
@@ -71,7 +73,7 @@ python scripts/build_index.py --repo "demo/xtc-third-store-backend"
 python scripts/build_index.py --repo "demo/xtc-third-store-backend" --site-base "https://store.example.com"
 ```
 
-不传 `--site-base` 时，默认使用：`https://<owner>.github.io/<repo>`
+不传 `--site-base` 时，工作流默认使用：`https://store.1357924680liu.dpdns.org`（可被仓库变量 `STORE_BASE_URL` 覆盖）
 
 ## 前端建议拉取地址
 
@@ -91,3 +93,7 @@ python scripts/build_index.py --repo "demo/xtc-third-store-backend" --site-base 
 4. 等 Action 自动更新 `data/index.json`
 
 就这 4 步，不需要额外后台服务。
+
+## 变更与规则文档
+
+详见：`变更文档-部署与请求规则.md`
