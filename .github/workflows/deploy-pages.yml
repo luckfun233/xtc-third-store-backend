@@ -1,0 +1,80 @@
+name: deploy-pages
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "apps/**"
+      - "assets/**"
+      - "packages/**"
+      - "scripts/build_index.py"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      STORE_BASE_URL: ${{ vars.STORE_BASE_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compute base url
+        id: base
+        shell: bash
+        run: |
+          if [[ -n "${STORE_BASE_URL}" ]]; then
+            echo "site_base=${STORE_BASE_URL}" >> "$GITHUB_OUTPUT"
+          else
+            repo_name="${GITHUB_REPOSITORY#*/}"
+            echo "site_base=https://${GITHUB_REPOSITORY_OWNER}.github.io/${repo_name}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build index.json
+        run: |
+          python scripts/build_index.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --site-base "${{ steps.base.outputs.site_base }}"
+
+      - name: Prepare static site artifact
+        shell: bash
+        run: |
+          rm -rf _site
+          mkdir -p _site
+          cp -r apps _site/apps
+          cp -r assets _site/assets
+          cp -r data _site/data
+          cp -r packages _site/packages
+          if [[ -f CNAME ]]; then cp CNAME _site/CNAME; fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

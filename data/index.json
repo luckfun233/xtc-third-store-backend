@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-03-07T14:28:30+00:00",
+  "generatedAt": "2026-03-07T14:34:42+00:00",
   "repo": {
-    "id": "luckfun233/xtc-third-store-backend",
-    "branch": "master"
+    "id": "204848/xtc-third-store",
+    "branch": "main"
   },
   "categories": [
     {
@@ -26,18 +26,18 @@
           ],
           "minPlatformVersion": 1070,
           "minFirmware": "1.0.0",
-          "icon": "https://luckfun233.github.io/xtc-third-store-backend/assets/icons/sample-math.png",
+          "icon": "https://204848.github.io/xtc-third-store/assets/icons/sample-math.png",
           "screenshots": [],
           "rpkFileName": "sample-math-1.0.0.rpk",
-          "packageSizeBytes": 32,
+          "packageSizeBytes": 33,
           "download": {
-            "primary": "https://luckfun233.github.io/xtc-third-store-backend/packages/games/sample-math/sample-math-1.0.0.rpk",
-            "mirror": "https://luckfun233.github.io/xtc-third-store-backend/packages/games/sample-math/sample-math-1.0.0.rpk",
-            "proxy": "https://luckfun233.github.io/xtc-third-store-backend/packages/games/sample-math/sample-math-1.0.0.rpk"
+            "primary": "https://204848.github.io/xtc-third-store/packages/games/sample-math-1.0.0.rpk",
+            "mirror": "https://204848.github.io/xtc-third-store/packages/games/sample-math-1.0.0.rpk",
+            "proxy": "https://204848.github.io/xtc-third-store/packages/games/sample-math-1.0.0.rpk"
           },
           "meta": {
-            "primary": "https://luckfun233.github.io/xtc-third-store-backend/apps/games/sample-math.json",
-            "mirror": "https://luckfun233.github.io/xtc-third-store-backend/apps/games/sample-math.json"
+            "primary": "https://204848.github.io/xtc-third-store/apps/games/sample-math.json",
+            "mirror": "https://204848.github.io/xtc-third-store/apps/games/sample-math.json"
           },
           "updatedAt": "2026-03-02T00:00:00+00:00"
         }
@@ -63,18 +63,18 @@
           ],
           "minPlatformVersion": 1070,
           "minFirmware": "1.0.0",
-          "icon": "https://luckfun233.github.io/xtc-third-store-backend/assets/icons/sample-timer.png",
+          "icon": "https://204848.github.io/xtc-third-store/assets/icons/sample-timer.png",
           "screenshots": [],
           "rpkFileName": "sample-timer-1.0.0.rpk",
-          "packageSizeBytes": 32,
+          "packageSizeBytes": 33,
           "download": {
-            "primary": "https://luckfun233.github.io/xtc-third-store-backend/packages/tools/sample-timer/sample-timer-1.0.0.rpk",
-            "mirror": "https://luckfun233.github.io/xtc-third-store-backend/packages/tools/sample-timer/sample-timer-1.0.0.rpk",
-            "proxy": "https://luckfun233.github.io/xtc-third-store-backend/packages/tools/sample-timer/sample-timer-1.0.0.rpk"
+            "primary": "https://204848.github.io/xtc-third-store/packages/tools/sample-timer-1.0.0.rpk",
+            "mirror": "https://204848.github.io/xtc-third-store/packages/tools/sample-timer-1.0.0.rpk",
+            "proxy": "https://204848.github.io/xtc-third-store/packages/tools/sample-timer-1.0.0.rpk"
           },
           "meta": {
-            "primary": "https://luckfun233.github.io/xtc-third-store-backend/apps/tools/sample-timer.json",
-            "mirror": "https://luckfun233.github.io/xtc-third-store-backend/apps/tools/sample-timer.json"
+            "primary": "https://204848.github.io/xtc-third-store/apps/tools/sample-timer.json",
+            "mirror": "https://204848.github.io/xtc-third-store/apps/tools/sample-timer.json"
           },
           "updatedAt": "2026-03-02T00:00:00+00:00"
         }
@@ -97,18 +97,18 @@
       ],
       "minPlatformVersion": 1070,
       "minFirmware": "1.0.0",
-      "icon": "https://luckfun233.github.io/xtc-third-store-backend/assets/icons/sample-math.png",
+      "icon": "https://204848.github.io/xtc-third-store/assets/icons/sample-math.png",
       "screenshots": [],
       "rpkFileName": "sample-math-1.0.0.rpk",
-      "packageSizeBytes": 32,
+      "packageSizeBytes": 33,
       "download": {
-        "primary": "https://luckfun233.github.io/xtc-third-store-backend/packages/games/sample-math/sample-math-1.0.0.rpk",
-        "mirror": "https://luckfun233.github.io/xtc-third-store-backend/packages/games/sample-math/sample-math-1.0.0.rpk",
-        "proxy": "https://luckfun233.github.io/xtc-third-store-backend/packages/games/sample-math/sample-math-1.0.0.rpk"
+        "primary": "https://204848.github.io/xtc-third-store/packages/games/sample-math-1.0.0.rpk",
+        "mirror": "https://204848.github.io/xtc-third-store/packages/games/sample-math-1.0.0.rpk",
+        "proxy": "https://204848.github.io/xtc-third-store/packages/games/sample-math-1.0.0.rpk"
       },
       "meta": {
-        "primary": "https://luckfun233.github.io/xtc-third-store-backend/apps/games/sample-math.json",
-        "mirror": "https://luckfun233.github.io/xtc-third-store-backend/apps/games/sample-math.json"
+        "primary": "https://204848.github.io/xtc-third-store/apps/games/sample-math.json",
+        "mirror": "https://204848.github.io/xtc-third-store/apps/games/sample-math.json"
       },
       "updatedAt": "2026-03-02T00:00:00+00:00"
     },
@@ -127,18 +127,18 @@
       ],
       "minPlatformVersion": 1070,
       "minFirmware": "1.0.0",
-      "icon": "https://luckfun233.github.io/xtc-third-store-backend/assets/icons/sample-timer.png",
+      "icon": "https://204848.github.io/xtc-third-store/assets/icons/sample-timer.png",
       "screenshots": [],
       "rpkFileName": "sample-timer-1.0.0.rpk",
-      "packageSizeBytes": 32,
+      "packageSizeBytes": 33,
       "download": {
-        "primary": "https://luckfun233.github.io/xtc-third-store-backend/packages/tools/sample-timer/sample-timer-1.0.0.rpk",
-        "mirror": "https://luckfun233.github.io/xtc-third-store-backend/packages/tools/sample-timer/sample-timer-1.0.0.rpk",
-        "proxy": "https://luckfun233.github.io/xtc-third-store-backend/packages/tools/sample-timer/sample-timer-1.0.0.rpk"
+        "primary": "https://204848.github.io/xtc-third-store/packages/tools/sample-timer-1.0.0.rpk",
+        "mirror": "https://204848.github.io/xtc-third-store/packages/tools/sample-timer-1.0.0.rpk",
+        "proxy": "https://204848.github.io/xtc-third-store/packages/tools/sample-timer-1.0.0.rpk"
       },
       "meta": {
-        "primary": "https://luckfun233.github.io/xtc-third-store-backend/apps/tools/sample-timer.json",
-        "mirror": "https://luckfun233.github.io/xtc-third-store-backend/apps/tools/sample-timer.json"
+        "primary": "https://204848.github.io/xtc-third-store/apps/tools/sample-timer.json",
+        "mirror": "https://204848.github.io/xtc-third-store/apps/tools/sample-timer.json"
       },
       "updatedAt": "2026-03-02T00:00:00+00:00"
     }

@@ -62,30 +62,62 @@ def resolve_media_url(repo: str, branch: str, site_base: str, media_value):
 
 
 def infer_rpk_path(root: Path, category: str, app_id: str, version_name: str) -> str:
-    flat_dir = root / "packages" / category / app_id
-    flat_rpk_files = sorted(flat_dir.glob("*.rpk")) if flat_dir.exists() else []
-    if len(flat_rpk_files) == 1:
-        return str(flat_rpk_files[0].relative_to(root)).replace('\\', '/')
-    if len(flat_rpk_files) > 1:
+    # 新结构（推荐）：packages/<category>/*.rpk
+    category_dir = root / "packages" / category
+    category_rpk_files = sorted(category_dir.glob("*.rpk")) if category_dir.exists() else []
+    if category_rpk_files:
+        preferred_names = {
+            f"{app_id}.rpk",
+            f"{app_id}-{version_name}.rpk",
+            f"{app_id}_{version_name}.rpk",
+        }
+        exact = [p for p in category_rpk_files if p.name in preferred_names]
+        if len(exact) == 1:
+            return str(exact[0].relative_to(root)).replace('\\', '/')
+        if len(exact) > 1:
+            raise ValueError(
+                f"multiple matched .rpk files found in {category_dir} for appId={app_id}, version={version_name}. "
+                f"Please set rpkPath explicitly."
+            )
+
+        # 次选：文件名包含 appId 且包含版本号
+        fuzzy = [
+            p for p in category_rpk_files
+            if app_id.lower() in p.name.lower() and str(version_name).lower() in p.name.lower()
+        ]
+        if len(fuzzy) == 1:
+            return str(fuzzy[0].relative_to(root)).replace('\\', '/')
+        if len(fuzzy) > 1:
+            raise ValueError(
+                f"multiple fuzzy matched .rpk files found in {category_dir} for appId={app_id}, version={version_name}. "
+                f"Please set rpkPath explicitly."
+            )
+
+    # 兼容旧结构1：packages/<category>/<appId>/*.rpk
+    legacy_app_dir = category_dir / app_id
+    legacy_app_files = sorted(legacy_app_dir.glob("*.rpk")) if legacy_app_dir.exists() else []
+    if len(legacy_app_files) == 1:
+        return str(legacy_app_files[0].relative_to(root)).replace('\\', '/')
+    if len(legacy_app_files) > 1:
         raise ValueError(
-            f"multiple .rpk files found in {flat_dir}. "
+            f"multiple .rpk files found in {legacy_app_dir}. "
             f"Please set rpkPath explicitly to avoid wrong filename mapping."
         )
 
-    # 兼容旧结构：packages/<category>/<appId>/<versionName>/xxx.rpk
-    legacy_dir = flat_dir / version_name
-    legacy_rpk_files = sorted(legacy_dir.glob("*.rpk")) if legacy_dir.exists() else []
-    if len(legacy_rpk_files) == 1:
-        return str(legacy_rpk_files[0].relative_to(root)).replace('\\', '/')
-    if len(legacy_rpk_files) > 1:
+    # 兼容旧结构2：packages/<category>/<appId>/<versionName>/*.rpk
+    legacy_ver_dir = legacy_app_dir / version_name
+    legacy_ver_files = sorted(legacy_ver_dir.glob("*.rpk")) if legacy_ver_dir.exists() else []
+    if len(legacy_ver_files) == 1:
+        return str(legacy_ver_files[0].relative_to(root)).replace('\\', '/')
+    if len(legacy_ver_files) > 1:
         raise ValueError(
-            f"multiple .rpk files found in {legacy_dir}. "
+            f"multiple .rpk files found in {legacy_ver_dir}. "
             f"Please set rpkPath explicitly to avoid wrong filename mapping."
         )
 
     raise ValueError(
-        f"missing rpkPath and no .rpk found in {flat_dir} or {legacy_dir}. "
-        f"Please set rpkPath explicitly or place exactly one .rpk under packages/{category}/{app_id}/"
+        f"missing rpkPath and no matched .rpk found under packages/{category}/. "
+        f"Please set rpkPath explicitly or place rpk as packages/{category}/{app_id}-{version_name}.rpk"
     )
 
 
