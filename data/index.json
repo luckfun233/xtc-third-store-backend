@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-03-07T16:20:47+00:00",
+  "generatedAt": "2026-03-07T16:23:11+00:00",
   "repo": {
     "id": "luckfun233/xtc-third-store-backend",
     "branch": "master"
@@ -96,7 +96,7 @@
           "icon": "https://store.3216gemini.dpdns.org/assets/icons/store.png",
           "screenshots": [],
           "rpkFileName": "store.rpk",
-          "packageSizeBytes": 23565,
+          "packageSizeBytes": 19952,
           "download": {
             "primary": "https://store.3216gemini.dpdns.org/packages/practical/store.rpk",
             "mirror": "https://store.3216gemini.dpdns.org/packages/practical/store.rpk",
@@ -190,7 +190,7 @@
       "icon": "https://store.3216gemini.dpdns.org/assets/icons/store.png",
       "screenshots": [],
       "rpkFileName": "store.rpk",
-      "packageSizeBytes": 23565,
+      "packageSizeBytes": 19952,
       "download": {
         "primary": "https://store.3216gemini.dpdns.org/packages/practical/store.rpk",
         "mirror": "https://store.3216gemini.dpdns.org/packages/practical/store.rpk",
